@@ -8,6 +8,7 @@ import { Paper,
     TableHead, 
     TablePagination, 
     TableRow } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
     root: {
@@ -58,7 +59,7 @@ const BeersTable = ({ beers }) => {
                             return (
                                 <TableRow key={beer.id}>
                                     <TableCell key={'name'}>
-                                        {beer.name}
+                                        <Link to={`/beers/${beer.id}`}>{beer.name}</Link>
                                     </TableCell>
                                     <TableCell key={'brewery'}>
                                         {beer.brewery && beer.brewery.name}
