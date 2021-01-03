@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Beers from './components/Beers'
 import Breweries from './components/Breweries'
 import Home from './components/Home'
+import Ratings from './components/Ratings'
 import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
 import Styles from './components/Styles'
@@ -31,6 +32,9 @@ const App = () => {
         <div>
             <Header />
             <Switch>
+                <Route path='/ratings'>
+                    <Ratings />
+                </Route>
                 <Route path='/beers'>
                     <Beers />
                 </Route>

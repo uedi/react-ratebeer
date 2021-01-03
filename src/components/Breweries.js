@@ -1,11 +1,11 @@
 import React from 'react'
+import BreweriesTable from './BreweriesTable'
 
 const Breweries = () => {
     return (
         <div>
             <h1>Breweries</h1>
-            <h2>Active</h2>
-            <h3>Active</h3>
+            <BreweriesTable />
         </div>
     )
 }

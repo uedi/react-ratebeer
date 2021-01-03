@@ -37,6 +37,7 @@ const Header = () => {
     return (
         <div className={classes.header}>
             { linkComponent('/', 'Home') }
+            { linkComponent('/ratings', 'ratings') }
             { linkComponent('/beers', 'Beers') }
             { linkComponent('/breweries', 'Breweries') }
             { linkComponent('/styles', 'Styles') }
