@@ -2,19 +2,12 @@ import React from 'react'
 import { useField } from '../hooks'
 import { TextField, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import theme from '../theme'
 
 const useStyles = makeStyles({
-    loginForm: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start'
-    },
-    loginFormField: {
-        margin: '0 2em 1em'
-    },
-    loginButton: {
-        margin: '1em 2em'
-    }
+    loginForm: theme.form,
+    loginFormField: theme.formTextField,
+    loginButton: theme.formSubmitButton
 })
 
 const SignInForm = ({ handleSignIn }) => {
