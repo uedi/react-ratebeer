@@ -1,9 +1,11 @@
 import React from 'react'
+import StylesTable from './StylesTable'
 
 const Styles = () => {
     return (
         <div>
-            styles
+            <h1>Styles</h1>
+            <StylesTable />
         </div>
     )
 }
