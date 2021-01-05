@@ -13,6 +13,7 @@ import Styles from './components/Styles'
 import { setBeers } from './reducers/beerReducer'
 import { setBreweries } from './reducers/breweryReducer'
 import { setStyles } from './reducers/styleReducer'
+import CreateBeer from './components/CreateBeer'
 
 const App = () => {
    
@@ -67,8 +68,11 @@ const App = () => {
                 <Route path='/ratings'>
                     <Ratings />
                 </Route>
+                <Route path='/beers/new'>
+                    <CreateBeer breweries={breweries} styles={styles} />
+                </Route>
                 <Route path='/beers/:id'>
-                    <Beer beer={matchedBeer}/>
+                    <Beer beer={matchedBeer} />
                 </Route>
                 <Route path='/beers'>
                     <Beers />
