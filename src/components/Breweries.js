@@ -8,7 +8,7 @@ const Breweries = () => {
     
     return (
         <div>
-            <h1>Breweries</h1>
+            <h1 className='table-header'>Breweries</h1>
             { breweries && <BreweriesTable breweries={breweries}/> }
             
         </div>

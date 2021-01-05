@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import { Paper, 
     Table, 
     TableBody, 
@@ -10,18 +9,7 @@ import { Paper,
     TableRow } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
-const useStyles = makeStyles({
-    root: {
-        width: '100%'
-    },
-    container: {
-        maxHeight: 440
-    }
-
-})
-
 const BeersTable = ({ beers }) => {
-    const classes = useStyles()
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(10)
 
@@ -35,8 +23,8 @@ const BeersTable = ({ beers }) => {
     }
     
     return (
-        <Paper className={classes.root}>
-            <TableContainer className={classes.container}>
+        <Paper className='table-paper'>
+            <TableContainer>
                 <Table stickyHeader aria-label='sticky table'>
                     <TableHead>
                         <TableRow>

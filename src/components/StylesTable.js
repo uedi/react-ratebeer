@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { makeStyles} from '@material-ui/core/styles'
 import {
     Paper,
     Table,
@@ -11,17 +10,7 @@ import {
     TableRow
 } from '@material-ui/core'
 
-const useStyles = makeStyles({
-    root: {
-        width: '100%'
-    },
-    container: {
-        maxHeight: '100vh'
-    }
-})
-
-const StylesTable = () => {
-    const classes = useStyles()
+const StylesTable = ({ styles }) => {
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(10)
 
@@ -35,8 +24,8 @@ const StylesTable = () => {
     }
 
     return (
-        <Paper className={classes.root}>
-            <TableContainer className={classes.container}>
+        <Paper className='table-paper'>
+            <TableContainer>
                 <Table stickyHeader aria-label='sticky table'>
                     <TableHead>
                         <TableRow>
@@ -49,6 +38,17 @@ const StylesTable = () => {
 
                     </TableBody>
                 </Table>
+                <TableBody>
+                    {styles.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(style => {
+                        return(
+                            <TableRow key={style.id}>
+                                <TableCell key={'name'}>
+                                    {style.name}
+                                </TableCell>
+                            </TableRow>
+                        )
+                    })}
+                </TableBody>
             </TableContainer>
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
