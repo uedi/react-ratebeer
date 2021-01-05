@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     }
 })
 
-const BreweriesTable = () => {
+const BreweriesTable = ({ breweries }) => {
     
     const classes = useStyles()
     const [page, setPage] = useState(0)
@@ -56,7 +56,24 @@ const BreweriesTable = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        
+                        {breweries.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(brewery => {
+                            return(
+                                <TableRow key={brewery.id}>
+                                    <TableCell key={'name'}>
+                                        {brewery.name}
+                                    </TableCell>
+                                    <TableCell key={'year'}>
+                                        {brewery.year}
+                                    </TableCell>
+                                    <TableCell key={'country'}>
+                                        {brewery.country && brewery.country.name}
+                                    </TableCell>
+                                    <TableCell key={'status'}>
+                                        {brewery.status && brewery.status}
+                                    </TableCell>
+                                </TableRow>
+                            )
+                        })}
                     </TableBody>
                 </Table>
             </TableContainer>
