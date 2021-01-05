@@ -37,18 +37,18 @@ const StylesTable = ({ styles }) => {
                     <TableBody>
 
                     </TableBody>
+                    <TableBody>
+                        {styles.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(style => {
+                            return(
+                                <TableRow key={style.id}>
+                                    <TableCell key={'name'}>
+                                        {style.name}
+                                    </TableCell>
+                                </TableRow>
+                            )
+                        })}
+                    </TableBody>
                 </Table>
-                <TableBody>
-                    {styles.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(style => {
-                        return(
-                            <TableRow key={style.id}>
-                                <TableCell key={'name'}>
-                                    {style.name}
-                                </TableCell>
-                            </TableRow>
-                        )
-                    })}
-                </TableBody>
             </TableContainer>
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
