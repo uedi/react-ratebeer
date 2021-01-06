@@ -14,6 +14,7 @@ import { setBeers } from './reducers/beerReducer'
 import { setBreweries } from './reducers/breweryReducer'
 import { setStyles } from './reducers/styleReducer'
 import CreateBeer from './components/CreateBeer'
+import CreateStyle from './components/CreateStyle'
 
 const App = () => {
    
@@ -79,6 +80,9 @@ const App = () => {
                 </Route>
                 <Route path='/breweries'>
                     <Breweries />
+                </Route>
+                <Route path='/styles/new'>
+                    <CreateStyle />
                 </Route>
                 <Route path='/styles'>
                     <Styles />
