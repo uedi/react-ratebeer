@@ -6,6 +6,7 @@ import Beer from './components/Beer'
 import Beers from './components/Beers'
 import Breweries from './components/Breweries'
 import Home from './components/Home'
+import Countries from './components/Countries'
 import Ratings from './components/Ratings'
 import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
@@ -80,6 +81,9 @@ const App = () => {
                 </Route>
                 <Route path='/breweries'>
                     <Breweries />
+                </Route>
+                <Route path='/countries'>
+                    <Countries />
                 </Route>
                 <Route path='/styles/new'>
                     <CreateStyle />

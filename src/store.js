@@ -5,12 +5,14 @@ import beerReducer from './reducers/beerReducer'
 import breweryReducer from './reducers/breweryReducer'
 import userReducer from './reducers/userReducer'
 import styleReducer from './reducers/styleReducer'
+import countryReducer from './reducers/countryReducer'
 
 const reducer = combineReducers({
     beers: beerReducer,
     breweries: breweryReducer,
     user: userReducer,
-    styles: styleReducer
+    styles: styleReducer,
+    countries: countryReducer
 })
 
 const store = createStore(
