@@ -14,8 +14,13 @@ import Styles from './components/Styles'
 import { setBeers } from './reducers/beerReducer'
 import { setBreweries } from './reducers/breweryReducer'
 import { setStyles } from './reducers/styleReducer'
+import { setCountries } from './reducers/countryReducer'
 import CreateBeer from './components/CreateBeer'
 import CreateStyle from './components/CreateStyle'
+import beersService from './services/beers'
+import breweriesService from './services/breweries'
+import stylesService from './services/styles'
+import countriesService from './services/countries'
 
 const App = () => {
    
@@ -23,6 +28,7 @@ const App = () => {
     const beers = useSelector(state => state.beers)
     const breweries = useSelector(state => state.breweries)
     const styles = useSelector(state => state.styles)
+    const countries = useSelector(state => state.countries)
 
     const dispatch = useDispatch()
 
@@ -33,35 +39,31 @@ const App = () => {
     
     useEffect(() => {
         if(!beers) {
-            const initBeers = [
-                { id: 1, name: 'beer1', brewery: { id: 1, name: 'brewery1' }, style: { id: 1, name: 'style1' }, rating: 5.0 },
-                { id: 2, name: 'beer2', brewery: { id: 1, name: 'brewery1' }, style: { id: 1, name: 'style1' }, rating: 4.4 },
-                { id: 3, name: 'beer3', brewery: { id: 1, name: 'brewery1' }, style: { id: 1, name: 'style1' }, rating: 3.3 },
-                { id: 4, name: 'beer4', brewery: { id: 1, name: 'brewery1' }, style: { id: 1, name: 'style1' }, rating: 2.0 }
-            ]
+            const initBeers = beersService.getAll()
             dispatch(setBeers(initBeers))
         }
     }, [beers, dispatch])
 
     useEffect(() => {
         if(!breweries) {
-            const initBreweries = [
-                { id: 1, name: 'brewery1', year: 1899, country: { id: 1, name: 'Germany' }, status: 'active' },
-                { id: 2, name: 'brewery2', year: 1990, country: { id: 2, name: 'Finland' }, status: 'active' }
-            ]
+            const initBreweries = breweriesService.getAll()
             dispatch(setBreweries(initBreweries))
         }
     }, [breweries, dispatch])
 
     useEffect(() => {
         if(!styles) {
-            const initStyles = [
-                { id: 1, name: 'Weizen' },
-                { id: 2, name: 'IPA' }
-            ]
+            const initStyles = stylesService.getAll()
             dispatch(setStyles(initStyles))
         }
     }, [styles, dispatch])
+
+    useEffect(() => {
+        if(!countries) {
+            const initCountries = countriesService.getAll()
+            dispatch(setCountries(initCountries))
+        }
+    }, [countries, dispatch])
 
     return (
         <div>
