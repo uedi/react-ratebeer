@@ -1,7 +1,5 @@
 import axios from 'axios'
-import { API_URL } from '../utils/config'
-const baseUrl = `${API_URL}/countries`
-
+const baseUrl = 'api/countries'
 
 const getAll = async () => {
     /*
