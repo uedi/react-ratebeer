@@ -1,4 +1,10 @@
-const getAll = () => {
+import axios from 'axios'
+import { API_URL } from '../utils/config'
+const baseUrl = `${API_URL}/countries`
+
+
+const getAll = async () => {
+    /*
     const response = [
         {
             id: 1,
@@ -7,8 +13,9 @@ const getAll = () => {
             beers: 0
         }
     ]
-
-    return response
+    */
+    const response = await axios.get(baseUrl)
+    return response.data
 }
 
 const countriesService = {

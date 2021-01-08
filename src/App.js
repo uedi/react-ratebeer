@@ -39,29 +39,52 @@ const App = () => {
     
     useEffect(() => {
         if(!beers) {
-            const initBeers = beersService.getAll()
-            dispatch(setBeers(initBeers))
+            beersService.getAll()
+            .then(initBeers => {
+                dispatch(setBeers(initBeers))
+            })
+            .catch(error => {
+                console.log('get beers error:', error.message)
+            })
+            
         }
     }, [beers, dispatch])
 
     useEffect(() => {
         if(!breweries) {
-            const initBreweries = breweriesService.getAll()
-            dispatch(setBreweries(initBreweries))
+            breweriesService.getAll()
+            .then(initBreweries => {
+                dispatch(setBreweries(initBreweries))
+            })
+            .catch(error => {
+                console.log('get breweries error:', error.message)
+            })
         }
     }, [breweries, dispatch])
 
     useEffect(() => {
         if(!styles) {
-            const initStyles = stylesService.getAll()
-            dispatch(setStyles(initStyles))
+            stylesService.getAll()
+            .then(initStyles => {
+                dispatch(setStyles(initStyles))    
+            })
+            .catch(error => {
+                console.log('get styles error:', error.message)
+            })
+            
         }
     }, [styles, dispatch])
 
     useEffect(() => {
         if(!countries) {
-            const initCountries = countriesService.getAll()
-            dispatch(setCountries(initCountries))
+            countriesService.getAll()
+            .then(initCountries => {
+                dispatch(setCountries(initCountries))    
+            })
+            .catch(error => {
+                console.log('get countries error:', error.message)
+            })
+            
         }
     }, [countries, dispatch])
 

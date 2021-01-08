@@ -1,3 +1,1 @@
-window.env = {
-  "API_URL": "hophop"
-};
+window.env = {};
