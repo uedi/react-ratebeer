@@ -17,6 +17,7 @@ import { setStyles } from './reducers/styleReducer'
 import { setCountries } from './reducers/countryReducer'
 import CreateBeer from './components/CreateBeer'
 import CreateStyle from './components/CreateStyle'
+import CreateCountry from './components/CreateCountry'
 import beersService from './services/beers'
 import breweriesService from './services/breweries'
 import stylesService from './services/styles'
@@ -106,6 +107,9 @@ const App = () => {
                 </Route>
                 <Route path='/breweries'>
                     <Breweries />
+                </Route>
+                <Route path='/countries/new'>
+                    <CreateCountry />
                 </Route>
                 <Route path='/countries'>
                     <Countries />
