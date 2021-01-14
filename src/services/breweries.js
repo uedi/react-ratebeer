@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'api/breweries'
+const baseUrl = '/api/breweries'
 
 const getAll = async () => {
     /*

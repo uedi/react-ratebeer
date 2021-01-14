@@ -1,10 +1,17 @@
 import React from 'react'
 import CreateCountryForm from './CreateCountryForm'
+import countriesService from '../services/countries'
 
 const CreateCountry = () => {
     
     const handleCreateCountry = (data) => {
-        console.log('create country', data)
+        countriesService.create(data)
+        .then(response => {
+            console.log('created country:', response)
+        })
+        .catch(error => {
+            console.log('handleCreateCountry error', error)
+        })
     }
 
     return (
