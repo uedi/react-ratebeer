@@ -1,15 +1,18 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import CreateStyleForm from './CreateStyleForm'
 import stylesService from '../services/styles'
 import { useHistory } from 'react-router-dom'
+import { addStyle } from '../reducers/styleReducer'
 
 const CreateStyle = () => {
     const history = useHistory()
+    const dispatch = useDispatch()
 
     const handleCreateStyle = (data) => {
         stylesService.create(data)
         .then(response => {
-            console.log('style created:', response)
+            dispatch(addStyle(response))
             history.push('/styles')
         })
         .catch(error => {
