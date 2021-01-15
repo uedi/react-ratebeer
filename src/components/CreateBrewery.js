@@ -1,12 +1,24 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import CreateBreweryForm from './CreateBreweryForm'
+import breweriesService from '../services/breweries'
+import { addBrewery } from '../reducers/breweryReducer'
 
 const CreateBrewery = () => {
+    const history = useHistory()
+    const dispatch = useDispatch()
     const countries = useSelector(state => state.countries)
 
     const handleCreateBrewery = (breweryData) => {
-        console.log(breweryData)
+        breweriesService.create(breweryData)
+        .then(response => {
+            dispatch(addBrewery(response))
+            history.push('/breweries')
+        })
+        .catch(error => {
+            console.log('handleCreateBrewery error:', error)
+        })
     }
 
     return (

@@ -2,18 +2,17 @@ import axios from 'axios'
 const baseUrl = '/api/breweries'
 
 const getAll = async () => {
-    /*
-    const response = [
-        { id: 1, name: 'brewery1', year: 1899, country: { id: 1, name: 'Germany' }, status: 'active' },
-        { id: 2, name: 'brewery2', year: 1990, country: { id: 2, name: 'Finland' }, status: 'active' }
-    ]
-    */
     const response = await axios.get(baseUrl)
     return response.data
 }
 
+const create = async brewery => {
+    const response = await axios.post(baseUrl, brewery)
+    return response.data
+}
+
 const breweriesService = {
-    getAll
+    getAll, create
 }
 
 export default breweriesService
