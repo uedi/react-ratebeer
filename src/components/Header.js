@@ -42,7 +42,7 @@ const Header = () => {
             { linkComponent('/breweries', 'Breweries') }
             { linkComponent('/styles', 'Styles') }
             { linkComponent('/countries', 'Countries') }
-            { linkComponent('/signin', 'SignIn') }
+            { linkComponent('/login', 'Login') }
             { linkComponent('/signup', 'SignUp') }
 
         </div>

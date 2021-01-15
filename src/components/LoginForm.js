@@ -10,7 +10,7 @@ const useStyles = makeStyles({
     loginButton: theme.formSubmitButton
 })
 
-const SignInForm = ({ handleSignIn }) => {
+const LoginForm = ({ handleLogin }) => {
 
     const classes = useStyles()
 
@@ -19,7 +19,7 @@ const SignInForm = ({ handleSignIn }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        handleSignIn({
+        handleLogin({
             username: username.value,
             password: password.value
         })
@@ -29,10 +29,10 @@ const SignInForm = ({ handleSignIn }) => {
         <form className={classes.loginForm} onSubmit={handleSubmit}>
             <TextField className={classes.loginFormField} id='username' label='username' {...username} />
             <TextField className={classes.loginFormField} id='password' label='password' {...password} />
-            <Button className={classes.loginButton} type='submit' color='primary'>Sign in</Button>
+            <Button className={classes.loginButton} type='submit' color='primary'>Login</Button>
         </form>
     )
 
 }
 
-export default SignInForm
+export default LoginForm

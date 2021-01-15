@@ -1,25 +1,25 @@
 import React from 'react'
-import SignInForm from './SignInForm'
+import LoginForm from './LoginForm'
 import usersService from '../services/users'
 
-const SignIn = () => {
+const Login = () => {
 
-    const handleSignIn = (data) => {
+    const handleLogin = (data) => {
         usersService.login(data)
         .then(response => {
             console.log(response)
         })
         .catch(error => {
-            console.log('handleSignIn error:', error)
+            console.log('handleLogin error:', error)
         })
     }
 
     return (
         <div>
-            <h2>Sign in</h2>
-            <SignInForm handleSignIn={handleSignIn} />
+            <h2>Login</h2>
+            <LoginForm handleLogin={handleLogin} />
         </div>
     )
 }
 
-export default SignIn
+export default Login

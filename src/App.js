@@ -8,7 +8,7 @@ import Breweries from './components/Breweries'
 import Home from './components/Home'
 import Countries from './components/Countries'
 import Ratings from './components/Ratings'
-import SignIn from './components/SignIn'
+import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Styles from './components/Styles'
 import { setBeers } from './reducers/beerReducer'
@@ -124,8 +124,8 @@ const App = () => {
                 <Route path='/styles'>
                     <Styles />
                 </Route>
-                <Route path='/signin'>
-                    <SignIn />
+                <Route path='/login'>
+                    <Login />
                 </Route>
                 <Route path='/signup'>
                     <SignUp />
