@@ -26,7 +26,7 @@ import countriesService from './services/countries'
 
 const App = () => {
    
-    //const user = useSelector(state => state.user)
+    const user = useSelector(state => state.user)
     const beers = useSelector(state => state.beers)
     const breweries = useSelector(state => state.breweries)
     const styles = useSelector(state => state.styles)
@@ -89,10 +89,10 @@ const App = () => {
             
         }
     }, [countries, dispatch])
-
+    
     return (
         <div>
-            <Header />
+            <Header loggedIn={user != null} />
             <Switch>
                 <Route path='/ratings'>
                     <Ratings />

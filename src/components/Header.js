@@ -18,9 +18,9 @@ const useStyles = makeStyles({
     }
 })
 
-const Header = () => {
+const Header = ({ loggedIn }) => {
     const classes = useStyles()
-
+    
     const linkComponent = (target, text, startIcon, endIcon) => (
         <Button
             className={classes.link}
@@ -42,8 +42,8 @@ const Header = () => {
             { linkComponent('/breweries', 'Breweries') }
             { linkComponent('/styles', 'Styles') }
             { linkComponent('/countries', 'Countries') }
-            { linkComponent('/login', 'Login') }
-            { linkComponent('/signup', 'SignUp') }
+            { !loggedIn && linkComponent('/login', 'Login') }
+            { !loggedIn && linkComponent('/signup', 'SignUp') }
 
         </div>
     )
