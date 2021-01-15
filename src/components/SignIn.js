@@ -1,10 +1,17 @@
 import React from 'react'
 import SignInForm from './SignInForm'
+import usersService from '../services/users'
 
 const SignIn = () => {
 
     const handleSignIn = (data) => {
-        console.log('sign in: ', data)
+        usersService.login(data)
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log('handleSignIn error:', error)
+        })
     }
 
     return (
