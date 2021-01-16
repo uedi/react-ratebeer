@@ -15,6 +15,7 @@ import { setBeers } from './reducers/beerReducer'
 import { setBreweries } from './reducers/breweryReducer'
 import { setStyles } from './reducers/styleReducer'
 import { setCountries } from './reducers/countryReducer'
+import { setUser } from './reducers/userReducer'
 import CreateBeer from './components/CreateBeer'
 import CreateStyle from './components/CreateStyle'
 import CreateCountry from './components/CreateCountry'
@@ -23,6 +24,7 @@ import beersService from './services/beers'
 import breweriesService from './services/breweries'
 import stylesService from './services/styles'
 import countriesService from './services/countries'
+import config from './utils/config'
 
 const App = () => {
    
@@ -39,6 +41,14 @@ const App = () => {
         ? beers.find(b => b.id.toString() === matchBeerRoute.params.id)
         : null
     
+    useEffect(() => {
+        const loggedUserJSON = window.localStorage.getItem(config.LOCALSTORAGELOGGEDUSER)
+        if(loggedUserJSON) {
+            const loggedUser = JSON.parse(loggedUserJSON)
+            dispatch(setUser(loggedUser))
+        }
+    }, [dispatch])
+
     useEffect(() => {
         if(!beers) {
             beersService.getAll()

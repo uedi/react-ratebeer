@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import LoginForm from './LoginForm'
 import usersService from '../services/users'
 import { setUser } from '../reducers/userReducer'
+import config from '../utils/config'
 
 const Login = () => {
 
@@ -13,6 +14,7 @@ const Login = () => {
     const handleLogin = (data) => {
         usersService.login(data)
         .then(response => {
+            window.localStorage.setItem(config.LOCALSTORAGELOGGEDUSER, JSON.stringify(response))
             dispatch(setUser(response))
             history.replace('/')
         })
