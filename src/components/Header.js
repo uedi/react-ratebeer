@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     }
 })
 
-const Header = ({ loggedIn }) => {
+const Header = ({ loggedIn, handleLogout }) => {
     const classes = useStyles()
     
     const linkComponent = (target, text, startIcon, endIcon) => (
@@ -34,6 +34,16 @@ const Header = ({ loggedIn }) => {
         </Button>
     )
 
+    const logoutButton = () => (
+        <Button
+            className={classes.link}
+            color='inherit'
+            onClick={handleLogout}
+        >
+            Logout
+        </Button>
+    )
+
     return (
         <div className={classes.header}>
             { linkComponent('/', 'Home') }
@@ -44,7 +54,7 @@ const Header = ({ loggedIn }) => {
             { linkComponent('/countries', 'Countries') }
             { !loggedIn && linkComponent('/login', 'Login') }
             { !loggedIn && linkComponent('/signup', 'SignUp') }
-
+            { loggedIn && logoutButton() }
         </div>
     )
 }

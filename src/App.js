@@ -15,7 +15,7 @@ import { setBeers } from './reducers/beerReducer'
 import { setBreweries } from './reducers/breweryReducer'
 import { setStyles } from './reducers/styleReducer'
 import { setCountries } from './reducers/countryReducer'
-import { setUser } from './reducers/userReducer'
+import { setUser, removeUser } from './reducers/userReducer'
 import CreateBeer from './components/CreateBeer'
 import CreateStyle from './components/CreateStyle'
 import CreateCountry from './components/CreateCountry'
@@ -99,10 +99,15 @@ const App = () => {
             
         }
     }, [countries, dispatch])
+
+    const handleLogout = () => {
+        window.localStorage.removeItem(config.LOCALSTORAGELOGGEDUSER)
+        dispatch(removeUser())
+    }
     
     return (
         <div>
-            <Header loggedIn={user != null} />
+            <Header loggedIn={user != null} handleLogout={handleLogout} />
             <Switch>
                 <Route path='/ratings'>
                     <Ratings />
