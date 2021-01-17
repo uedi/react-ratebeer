@@ -24,7 +24,7 @@ const SignUp = () => {
     }
 
     return (
-        <div>
+        <div className='center-view-page'>
             <h2>Sign up</h2>
             <SignUpForm handleSignUp={handleSignUp}/>
         </div>

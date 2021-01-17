@@ -22,7 +22,7 @@ const CreateBrewery = () => {
     }
 
     return (
-        <div>
+        <div className='page-content'>
             <h1>New Brewery</h1>
             <CreateBreweryForm countries={countries} handleCreateBrewery={handleCreateBrewery} />
         </div>

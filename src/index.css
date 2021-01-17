@@ -22,5 +22,18 @@
 }
 
 .form-item {
-    margin: 1em;
+    margin: 1em 0;
+}
+
+.center-view-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10em;
+}
+
+.page-content {
+    padding: 2em;
 }

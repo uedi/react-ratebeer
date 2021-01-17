@@ -2,7 +2,7 @@ import React from 'react'
 
 const Ratings = () => {
     return (
-        <div>
+        <div className='page-content'>
             <h1>Rating statistics</h1>
             <h2>Best beers</h2>
             <h2>Best breweries</h2>

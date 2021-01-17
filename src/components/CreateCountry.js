@@ -21,7 +21,7 @@ const CreateCountry = () => {
     }
 
     return (
-        <div>
+        <div className='page-content'>
             <h1>New country</h1>
             <CreateCountryForm handleCreateCountry={handleCreateCountry} />
         </div>

@@ -21,7 +21,7 @@ const CreateBeer = ({ breweries, styles }) => {
     }
 
     return (
-        <div>
+        <div className='page-content'>
             <h1>New Beer</h1>
             <CreateBeerForm breweries={breweries} styles={styles} handleCreateBeer={handleCreateBeer} />        
         </div>

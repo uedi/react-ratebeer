@@ -24,9 +24,12 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className='center-view-page'>
             <h2>Login</h2>
-            <LoginForm handleLogin={handleLogin} />
+            <div className='form-container'>
+                <LoginForm handleLogin={handleLogin} />
+            </div>
+            
         </div>
     )
 }

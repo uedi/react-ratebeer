@@ -21,7 +21,7 @@ const CreateStyle = () => {
     }
 
     return (
-        <div>
+        <div className='page-content'>
             <h1>New Style</h1>
             <CreateStyleForm handleCreateStyle={handleCreateStyle} />
         </div>
