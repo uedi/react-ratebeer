@@ -11,10 +11,17 @@ const useStyles = makeStyles({
         backgroundColor: '#131313',
         top: 0,
         zIndex: 10,
-        alignItems: 'center'
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingTop: 8,
+        paddingBottom: 8,
+        alignItems: 'center',
+        justifyContent: 'space-between'
     },
     link: {
-        color: '#fff'
+        color: '#fff',
+        marginLeft: 5,
+        marginRight: 5
     }
 })
 
@@ -46,15 +53,19 @@ const Header = ({ loggedIn, handleLogout }) => {
 
     return (
         <div className={classes.header}>
-            { linkComponent('/', 'Home') }
-            { linkComponent('/ratings', 'ratings') }
-            { linkComponent('/beers', 'Beers') }
-            { linkComponent('/breweries', 'Breweries') }
-            { linkComponent('/styles', 'Styles') }
-            { linkComponent('/countries', 'Countries') }
-            { !loggedIn && linkComponent('/login', 'Login') }
-            { !loggedIn && linkComponent('/signup', 'SignUp') }
-            { loggedIn && logoutButton() }
+            <div>
+                { linkComponent('/', 'Home') }
+                { linkComponent('/ratings', 'ratings') }
+                { linkComponent('/beers', 'Beers') }
+                { linkComponent('/breweries', 'Breweries') }
+                { linkComponent('/styles', 'Styles') }
+                { linkComponent('/countries', 'Countries') }
+            </div>
+            <div>
+                { !loggedIn && linkComponent('/login', 'Login') }
+                { !loggedIn && linkComponent('/signup', 'SignUp') }
+                { loggedIn && logoutButton() }    
+            </div>
         </div>
     )
 }
