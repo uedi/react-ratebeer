@@ -41,6 +41,8 @@ const App = () => {
         ? beers.find(b => b.id.toString() === matchBeerRoute.params.id)
         : null
     
+    const loggedIn = user != null
+
     useEffect(() => {
         const loggedUserJSON = window.localStorage.getItem(config.LOCALSTORAGELOGGEDUSER)
         if(loggedUserJSON) {
@@ -107,7 +109,7 @@ const App = () => {
     
     return (
         <div>
-            <Header loggedIn={user != null} handleLogout={handleLogout} />
+            <Header loggedIn={loggedIn} handleLogout={handleLogout} />
             <Switch>
                 <Route path='/ratings'>
                     <Ratings />
@@ -140,10 +142,10 @@ const App = () => {
                     <Styles />
                 </Route>
                 <Route path='/login'>
-                    <Login />
+                    <Login loggedIn={loggedIn} handleLogout={handleLogout} />
                 </Route>
                 <Route path='/signup'>
-                    <SignUp />
+                    <SignUp loggedIn={loggedIn} handleLogout={handleLogout} />
                 </Route>
                 <Route path='/'>
                     <Home />

@@ -5,11 +5,20 @@ import LoginForm from './LoginForm'
 import usersService from '../services/users'
 import { setUser } from '../reducers/userReducer'
 import config from '../utils/config'
+import { Button } from '@material-ui/core'
 
-const Login = () => {
+const Login = ({ loggedIn, handleLogout }) => {
 
     const dispatch = useDispatch()
     const history = useHistory()
+
+    if(loggedIn) {
+        return <div className='center-view-page'>
+            <h3>Already logged up</h3>
+            <div className='info-text'>Please logout to login again</div>
+            <Button onClick={handleLogout} color='primary'>Logout</Button>
+        </div>
+    }
 
     const handleLogin = (data) => {
         usersService.login(data)

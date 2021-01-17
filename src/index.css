@@ -37,3 +37,8 @@
 .page-content {
     padding: 2em;
 }
+
+.info-text {
+    padding: 1em 0;
+    font-weight: 300;
+}
